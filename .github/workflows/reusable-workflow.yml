@@ -3,14 +3,28 @@ name: Reusable Workflow
 on:
   workflow_dispatch:
     inputs:
-      message:
-        description: 'Message to display'
+      json-file-path:
+        description: 'Path to the JSON file'
         required: true
 
 jobs:
-  process-message:
+  process-json:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Message
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
         run: |
-          echo "Message received: ${{ github.event.inputs.message }} ${{ github.event.inputs.json-file-path }}"
+          python -m pip install --upgrade pip
+          
+      - name: Install requests
+        run: python -m pip install requests
+
+      - name: Read and print JSON values
+        run: python .github/scripts/read_json.py ${{ 'https://gbfs.citibikenyc.com/gbfs/en/station_information.json' }}
