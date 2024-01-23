@@ -14,6 +14,7 @@ jobs:
           echo "Message received: ${{ github.event.client_payload.inputs.json_file_path }}"
           json_file_path=${{ github.event.client_payload.inputs.json_file_path }}
           echo "Processing JSON file at $json_file_path"
+          cat "./$json_file_path"
            
       - name: Check out repository
         uses: actions/checkout@v2
