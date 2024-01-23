@@ -1,12 +1,30 @@
 name: Reusable Workflow
 
 on:
-  repository_dispatch:
-    types: [trigger-reusable-workflow]
+  workflow_dispatch:
+    inputs:
+      json-file-path:
+        description: 'Path to the JSON file'
+        required: true
 
 jobs:
-  process-message:
+  process-json:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Message
-        run: echo "Message received:" ${{ github.event.client_payload.message }}
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          
+      - name: Install requests
+        run: python -m pip install requests
+
+      - name: Read and print JSON values
+        run: python .github/scripts/read_json.py ${{ github.event.inputs.json-file-path }}
