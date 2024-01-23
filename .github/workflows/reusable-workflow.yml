@@ -1,11 +1,8 @@
 name: Reusable Workflow
 
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: 'Message to display'
-        required: true
+  repository_dispatch:
+    types: [trigger-reusable-workflow]
 
 jobs:
   process-message:
