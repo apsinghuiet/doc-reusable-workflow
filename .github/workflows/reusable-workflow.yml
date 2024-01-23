@@ -10,12 +10,9 @@ jobs:
     steps:
       - name: Print Message
         run: |
-          echo "Message received: ${{ github.event.client_payload.message }}"
-      - name: Read and print JSON values
-        run: |
-          json_file_path=${{ github.event.client_payload.inputs.json_file_path }}
-          message=${{ github.event.client_payload.inputs.message }}
-          
+          echo "Message received: ${{ github.event.client_payload.inputs.message }}"
+          echo "Message received: ${{ github.event.client_payload.inputs.json_file_path }}"
+           
       - name: Check out repository
         uses: actions/checkout@v2
 
