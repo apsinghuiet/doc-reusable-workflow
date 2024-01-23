@@ -29,3 +29,5 @@ jobs:
           
       - name: Install requests
         run: python -m pip install requests
+      - name: Read and print JSON values
+        run: python .github/scripts/read_json.py https://gbfs.citibikenyc.com/gbfs/en/station_information.json
