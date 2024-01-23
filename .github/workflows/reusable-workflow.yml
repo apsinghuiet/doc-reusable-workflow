@@ -1,12 +1,15 @@
 name: Reusable Workflow
 
 on:
-  repository_dispatch:
-    types: [trigger-reusable-workflow]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message to display'
+        required: true
 
 jobs:
   process-message:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "Message received:" ${{ github.event.client_payload.message }}
+        run: echo "Message received:" ${{ github.event.inputs.message }}
