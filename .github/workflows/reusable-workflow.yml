@@ -14,7 +14,6 @@ jobs:
           echo "Message received: ${{ github.event.client_payload.inputs.json_file_path }}"
           json_file_path=${{ github.event.client_payload.inputs.json_file_path }}
           echo "Processing JSON file at $json_file_path"
-
           # Print the content of the JSON file
           cat $json_file_path
            
