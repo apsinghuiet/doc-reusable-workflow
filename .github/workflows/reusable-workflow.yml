@@ -6,8 +6,6 @@ on:
       json-file-path:
         description: 'Path to the JSON file'
         required: true
-    token:
-      secret: ${{ secrets.REPO_ACCESS_TOKEN }}
 
 jobs:
   process-json:
