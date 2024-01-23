@@ -12,4 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "Message received:" ${{ github.event.inputs.message }}
+        run: |
+          echo "Message received: ${{ github.event.inputs.message }}"
