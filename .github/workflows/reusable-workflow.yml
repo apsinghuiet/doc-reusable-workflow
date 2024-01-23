@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Print Message
         run: |
-          echo "Message received: ${{ github.event.inputs.message }}"
+          echo "Message received: ${{ github.event.inputs.message }} ${{ github.event.inputs.json-file-path }}"
