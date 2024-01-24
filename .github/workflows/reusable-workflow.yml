@@ -44,5 +44,5 @@ jobs:
       - name: Upload downloaded file as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: downloaded-zip
-          path: ${{ steps.process-message.outputs.downloaded_file }}
+          name: process-message
+          path: ${{ needs.process-message.outputs.downloaded_file }}
