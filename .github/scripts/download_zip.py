@@ -17,6 +17,6 @@ if __name__ == "__main__":
     api_url = "https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip"
 
     # Set the temporary location to save the ZIP file
-    temp_location = "/tmp/downloaded.zip"
+    temp_location = "/tmp/mediplus-lite.zip"
 
     download_zip(api_url, temp_location)
