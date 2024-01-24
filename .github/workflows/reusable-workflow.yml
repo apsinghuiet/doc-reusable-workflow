@@ -5,7 +5,7 @@ on:
     types: [trigger-reusable-workflow]
 
 jobs:
-  process-message:
+  downloaded-zip:
     runs-on: ubuntu-latest
     outputs:
       # Define an output variable to store the path of the downloaded file
@@ -44,5 +44,5 @@ jobs:
       - name: Upload downloaded file as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: process-message
-          path: ${{ needs.process-message.outputs.downloaded_file }}
+          name: downloaded-zip
+          path: ${{ needs.downloaded-zip.outputs.downloaded_file }}
