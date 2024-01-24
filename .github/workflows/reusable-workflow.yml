@@ -33,3 +33,7 @@ jobs:
         run: python .github/scripts/read_json.py https://gbfs.citibikenyc.com/gbfs/en/station_information.json
       - name: Run Python script
         run: python .github/scripts/download_zip.py
+      - name: List downloaded files
+        run: |
+          # List the contents of the temporary location
+          ls -la /tmp/
