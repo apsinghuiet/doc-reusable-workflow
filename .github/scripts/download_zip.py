@@ -14,7 +14,7 @@ def download_zip(api_url, temp_location):
 
 if __name__ == "__main__":
     # Set the URL of the API endpoint that provides the ZIP file
-    api_url = "https://example.com/api/download-zip"
+    api_url = "https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip"
 
     # Set the temporary location to save the ZIP file
     temp_location = "/tmp/downloaded.zip"
