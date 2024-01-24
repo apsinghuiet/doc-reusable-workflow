@@ -7,6 +7,10 @@ on:
 jobs:
   process-message:
     runs-on: ubuntu-latest
+    outputs:
+      # Define an output variable to store the path of the downloaded file
+      id: downloaded_file
+      value: /tmp/mediplus-lite.zip
     steps:
       - name: Print Message
         run: |
@@ -37,3 +41,8 @@ jobs:
         run: |
           # List the contents of the temporary location
           ls -la /tmp/
+      - name: Upload downloaded file as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: downloaded-zip
+          path: ${{ steps.process-message.outputs.downloaded_file }}
