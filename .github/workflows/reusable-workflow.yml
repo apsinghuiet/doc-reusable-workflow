@@ -44,5 +44,5 @@ jobs:
       - name: Upload downloaded file as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: downloaded-zip
-          path: ${{ needs.downloaded-zip.outputs.downloaded_file }}
+           name: downloaded-zip
+           path: ${{ needs.download-zip.outputs.downloaded_file }}
